@@ -1,0 +1,26 @@
+{
+  "name": "leaflet-iconmaterial",
+  "version": "1.0.1",
+  "description": "Just another shameless copy of Awesome-Markers, but this time SVG-based with Material Icons: customizable fill and outline.",
+  "main": "dist/leaflet.icon-material.js",
+  "style": "dist/leaflet.icon-material.css",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilyankou/Leaflet.IconMaterial.git"
+  },
+  "keywords": [
+    "leaflet",
+    "marker",
+    "icon",
+    "material"
+  ],
+  "author": "Ilya Ilyankou",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ilyankou/Leaflet.IconMaterial/issues"
+  },
+  "homepage": "https://github.com/ilyankou/Leaflet.IconMaterial#readme"
+}

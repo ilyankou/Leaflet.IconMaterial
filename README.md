@@ -16,6 +16,12 @@ Just another shameless copy of Awesome-Markers, but this time with [Material Ico
 <script src="js/leaflet.icon-material.js"></script>
 ```
 
+or
+
+```
+npm i leaflet-iconmaterial
+```
+
 3. Create a Material icon and add it to your Leaflet map
 ```js
   // Create a semi-transparent bus icon
