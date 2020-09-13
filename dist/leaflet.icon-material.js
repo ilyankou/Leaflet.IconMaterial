@@ -16,7 +16,7 @@
 
     L.IconMaterial = {};
 
-    L.IconMaterial.version = '1.0.0';
+    L.IconMaterial.version = '1.1.0';
 
     L.IconMaterial.Icon = L.Icon.extend({
         options: {
@@ -26,6 +26,7 @@
             iconColor: 'white',
             outlineColor: 'white',
             outlineWidth: '1',
+            iconSize: [31, 42]
         },
 
         initialize: function (options) {
@@ -40,9 +41,11 @@
             var icongroup = document.createElementNS('http://www.w3.org/2000/svg', "g");
             var icon = document.createElementNS('http://www.w3.org/2000/svg', "text");
 
-            svg.setAttribute('width', '31');
-            svg.setAttribute('height', '42');
+            svg.setAttribute('width', options.iconSize[0]);
+            svg.setAttribute('height', options.iconSize[1]);
+            svg.setAttribute('viewBox', '0 0 31 42');
             svg.setAttribute('class', 'l-icon-material');
+            svg.setAttribute('style', 'margin-left:-' + parseInt(options.iconSize[0]/2) + 'px; margin-top:-' + options.iconSize[1] + 'px')
             svg.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xlink", "http://www.w3.org/1999/xlink");
             
             backgroundCircle.setAttribute('cx', '15.5');
@@ -65,7 +68,10 @@
             svg.appendChild(path);
             svg.appendChild(backgroundCircle);
             icongroup.appendChild(icon);
+
             svg.appendChild(icongroup);
+
+            svg.setAttribute('transform', "matrix(1 0 0 1 -" + parseInt(options.iconSize[0] / 2) + " " + parseInt(options.iconSize[1]) + ")");
 
             return svg;
         }

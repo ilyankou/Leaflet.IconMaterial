@@ -31,6 +31,7 @@ npm i leaflet-iconmaterial
     markerColor: 'rgba(255,0,0,0.5)',  // Marker fill color
     outlineColor: 'yellow',            // Marker outline color
     outlineWidth: 1,                   // Marker outline width 
+    iconSize: [31, 42]                 // Width and height of the icon
   })
   
   // Attach the icon to the marker and add to the map

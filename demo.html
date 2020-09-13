@@ -1,0 +1,30 @@
+<div id="map" style="height: 300px; width: 300px"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="./dist/leaflet.icon-material.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="./dist/leaflet.icon-material.css"></link>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css"></link>
+
+<script>
+
+var center = [41.7625, -72.674167]
+
+var map = L.map('map', {
+  center: center,
+  zoom: 16
+})
+
+var CartoDB_DarkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+	subdomains: 'abcd',
+	maxZoom: 19
+}).addTo(map)
+
+L.marker(center, {
+  icon: L.IconMaterial.icon({
+    iconColor: 'black'
+  })
+}).addTo(map)
+
+</script>
