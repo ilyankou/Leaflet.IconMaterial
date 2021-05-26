@@ -11,6 +11,8 @@
 
 /*global L*/
 
+import './leaflet.icon-material.css';
+
 (function (window, document, undefined) {
     "use strict";
 
@@ -43,8 +45,9 @@
 
             svg.setAttribute('width', options.iconSize[0]);
             svg.setAttribute('height', options.iconSize[1]);
-            svg.setAttribute('viewBox', '0 0 31 42');
             svg.setAttribute('class', options.className);
+            svg.setAttribute('viewBox', '0 0 31 42');
+            svg.setAttribute('class', 'l-icon-material');
             svg.setAttribute('style', 'margin-left:-' + parseInt(options.iconSize[0]/2) + 'px; margin-top:-' + options.iconSize[1] + 'px')
             svg.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xlink", "http://www.w3.org/1999/xlink");
             
@@ -62,7 +65,6 @@
             icon.setAttribute('x', '7');
             icon.setAttribute('y', '23');
             icon.setAttribute('class', 'material-icons');
-            icon.setAttribute('style', 'font-size: 17px');
             icon.setAttribute('fill', options.iconColor);
             icon.setAttribute('font-family', 'Material Icons');
 
