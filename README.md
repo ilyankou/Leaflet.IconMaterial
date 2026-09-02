@@ -1,6 +1,8 @@
 # Leaflet.IconMaterial
 Just another shameless copy of Awesome-Markers, but this time with [Material Icons](https://material.io/tools/icons/) icons and customizable `fill` and `outline` colors of the marker.
 
+Demo - https://ilyankou.github.io/Leaflet.IconMaterial/
+
 ![Leaflet.IconMaterial screenshot](screenshot.png "Leaflet.IconMaterial screenshot")
 
 ## Using the plugin
