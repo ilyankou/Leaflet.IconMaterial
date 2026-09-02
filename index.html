@@ -1,3 +1,47 @@
+<div id="controls" style="font-family: sans-serif; margin-bottom: 10px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+  <label>
+    Icon:
+    <select id="icon-select">
+      <option value="place">place</option>
+      <option value="star">star</option>
+      <option value="favorite">favorite</option>
+      <option value="directions_bus">directions_bus</option>
+      <option value="local_cafe">local_cafe</option>
+      <option value="restaurant">restaurant</option>
+      <option value="hotel">hotel</option>
+      <option value="shopping_cart">shopping_cart</option>
+      <option value="work">work</option>
+      <option value="school">school</option>
+      <option value="flight">flight</option>
+      <option value="local_hospital">local_hospital</option>
+      <option value="pets">pets</option>
+      <option value="wifi">wifi</option>
+      <option value="warning">warning</option>
+      <option value="info">info</option>
+      <option value="settings">settings</option>
+      <option value="person">person</option>
+      <option value="directions_car">directions_car</option>
+      <option value="home">home</option>
+    </select>
+  </label>
+
+  <label>
+    Icon color:
+    <input type="color" id="icon-color" value="#000000">
+  </label>
+
+  <label>
+    Marker color:
+    <input type="color" id="marker-color" value="#ffffff">
+  </label>
+
+  <label>
+    Size:
+    <input type="range" id="icon-size" min="15" max="60" value="31">
+    <span id="icon-size-label">31px</span>
+  </label>
+</div>
+
 <div id="map" style="height: 300px; width: 300px"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
@@ -21,10 +65,38 @@ var CartoDB_DarkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all
 	maxZoom: 19
 }).addTo(map)
 
-L.marker(center, {
+var marker = L.marker(center, {
   icon: L.IconMaterial.icon({
-    iconColor: 'black'
+    icon: 'place',
+    iconColor: 'black',
+    markerColor: 'white',
+    iconSize: [31, 42]
   })
 }).addTo(map)
+
+var iconSelect = document.getElementById('icon-select')
+var iconColorInput = document.getElementById('icon-color')
+var markerColorInput = document.getElementById('marker-color')
+var iconSizeInput = document.getElementById('icon-size')
+var iconSizeLabel = document.getElementById('icon-size-label')
+
+function updateMarker() {
+  var width = parseInt(iconSizeInput.value, 10)
+  var height = Math.round(width * 42 / 31) // keep the default marker's aspect ratio
+
+  iconSizeLabel.textContent = width + 'px'
+
+  marker.setIcon(L.IconMaterial.icon({
+    icon: iconSelect.value,
+    iconColor: iconColorInput.value,
+    markerColor: markerColorInput.value,
+    iconSize: [width, height]
+  }))
+}
+
+iconSelect.addEventListener('change', updateMarker)
+iconColorInput.addEventListener('input', updateMarker)
+markerColorInput.addEventListener('input', updateMarker)
+iconSizeInput.addEventListener('input', updateMarker)
 
 </script>
